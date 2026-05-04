@@ -4,6 +4,7 @@ import Nav from './components/Nav'
 import Footer from './components/Footer'
 import Home from './pages/Home'
 import WorkDetail from './pages/WorkDetail'
+import Games from './pages/Games'
 import Blog from './pages/Blog'
 import BlogPost from './pages/BlogPost'
 import Log from './pages/Log'
@@ -31,6 +32,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
       { path: 'works/:id', element: <WorkDetail /> },
+      { path: 'games', element: <Games /> },
       { path: 'blog', element: <Blog /> },
       { path: 'blog/:slug', element: <BlogPost /> },
       { path: 'log', element: <Log /> },
