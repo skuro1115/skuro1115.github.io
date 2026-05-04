@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { works } from '../data/works'
 
-const gameWorks = works.filter((w) => w.category === 'game')
+const appWorks = works.filter((w) => w.category === 'game')
 
 const gradients: Record<string, { bg: string; accent: string; glow: string }> = {
   blue: {
@@ -40,7 +40,7 @@ const fadeUp = {
   animate: { opacity: 1, y: 0 },
 }
 
-export default function Games() {
+export default function Apps() {
   return (
     <motion.main variants={page} initial="initial" animate="animate" exit="exit">
       {/* Page hero */}
@@ -52,7 +52,7 @@ export default function Games() {
           transition={{ duration: 0.5, delay: 0.05 }}
           className="font-mono text-xs text-blue-400 uppercase tracking-widest mb-4"
         >
-          Games
+          Apps
         </motion.p>
         <motion.h1
           variants={fadeUp}
@@ -75,7 +75,7 @@ export default function Games() {
       </section>
 
       {/* Works */}
-      {gameWorks.map((work, i) => {
+      {appWorks.map((work, i) => {
         const g = gradients[work.color] ?? defaultGradient
         const isEven = i % 2 === 0
 
@@ -197,7 +197,7 @@ export default function Games() {
       <section className="bg-[#06080f] px-6 py-20 text-center border-t border-white/5">
         <p className="text-gray-500 text-sm mb-2">その他の作品はこちら</p>
         <Link
-          to="/"
+          to="/works"
           className="inline-flex items-center gap-2 text-white font-medium hover:text-blue-400 transition-colors"
         >
           All Works を見る

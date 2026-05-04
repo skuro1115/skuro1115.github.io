@@ -23,7 +23,7 @@ export default function WorkDetail() {
       <motion.main variants={page} initial="initial" animate="animate" exit="exit">
         <div className="max-w-4xl mx-auto px-6 py-24 text-center">
           <p className="text-muted">作品が見つかりませんでした。</p>
-          <Link to="/" className="text-accent text-sm mt-4 inline-block">← トップへ</Link>
+          <Link to="/works" className="text-accent text-sm mt-4 inline-block">← Works へ</Link>
         </div>
       </motion.main>
     )
@@ -32,7 +32,7 @@ export default function WorkDetail() {
   return (
     <motion.main variants={page} initial="initial" animate="animate" exit="exit">
       <div className="max-w-2xl mx-auto px-6 py-16">
-        <Link to="/" className="font-mono text-sm text-muted hover:text-gray-900 transition-colors">
+        <Link to="/works" className="font-mono text-sm text-muted hover:text-gray-900 transition-colors">
           ← back
         </Link>
 

@@ -17,17 +17,17 @@ export default function Nav() {
               }`
             }
           >
-            Works
+            Apps
           </NavLink>
           <NavLink
-            to="/games"
+            to="/works"
             className={({ isActive }) =>
               `text-sm font-medium transition-colors ${
                 isActive ? 'text-accent' : 'text-muted hover:text-gray-900'
               }`
             }
           >
-            Games
+            Works
           </NavLink>
           <NavLink
             to="/blog"
