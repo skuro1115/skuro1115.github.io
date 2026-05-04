@@ -20,6 +20,16 @@ export default function Nav() {
             Works
           </NavLink>
           <NavLink
+            to="/games"
+            className={({ isActive }) =>
+              `text-sm font-medium transition-colors ${
+                isActive ? 'text-accent' : 'text-muted hover:text-gray-900'
+              }`
+            }
+          >
+            Games
+          </NavLink>
+          <NavLink
             to="/blog"
             className={({ isActive }) =>
               `text-sm font-medium transition-colors ${
