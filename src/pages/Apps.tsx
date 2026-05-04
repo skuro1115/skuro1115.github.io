@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { works, type Work } from '../data/works'
-import { useAppStoreIcon } from '../hooks/useAppStoreIcon'
 
 const appWorks = works.filter((w) => w.showInApps)
 
@@ -61,12 +60,10 @@ const cardItem = {
 type Gradient = { bg: string; accent: string; glow: string }
 
 function AppIcon({ work, gradient }: { work: Work; gradient: Gradient }) {
-  const { iconUrl } = useAppStoreIcon(work.appStoreUrl)
-
-  if (iconUrl) {
+  if (work.iconUrl) {
     return (
       <img
-        src={iconUrl}
+        src={work.iconUrl}
         alt={`${work.title} icon`}
         className="w-20 h-20 rounded-2xl shadow-lg flex-shrink-0"
       />
