@@ -8,6 +8,23 @@ const page = {
   exit: { opacity: 0, y: -4, transition: { duration: 0.15 } },
 }
 
+const listContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.08 },
+  },
+}
+
+const listItem = {
+  hidden: { opacity: 0, x: -12 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.35 },
+  },
+}
+
 export default function Blog() {
   return (
     <motion.main variants={page} initial="initial" animate="animate" exit="exit">
@@ -15,9 +32,15 @@ export default function Blog() {
         <h1 className="text-2xl font-semibold text-gray-900 mb-2">Blog</h1>
         <p className="text-sm text-muted mb-12">技術的なメモや調査ログ。</p>
 
-        <ul className="divide-y divide-border">
+        <motion.ul
+          className="divide-y divide-border"
+          variants={listContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
           {blogPosts.map((post) => (
-            <li key={post.slug}>
+            <motion.li key={post.slug} variants={listItem}>
               <Link
                 to={`/blog/${post.slug}`}
                 className="group block py-6 hover:no-underline"
@@ -37,9 +60,9 @@ export default function Blog() {
                 </h2>
                 <p className="text-sm text-muted">{post.excerpt}</p>
               </Link>
-            </li>
+            </motion.li>
           ))}
-        </ul>
+        </motion.ul>
       </div>
     </motion.main>
   )
