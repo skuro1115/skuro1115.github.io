@@ -150,7 +150,7 @@ function AppCard({ work }: { work: Work }) {
             to={`/apps/${work.id}`}
             className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg border border-white/10 text-gray-400 text-xs font-medium hover:text-white hover:border-white/30 transition-colors ml-auto"
           >
-            Learn more
+            View Product Page
             <svg className="w-3 h-3" fill="none" viewBox="0 0 14 14">
               <path
                 d="M3 7h8M7 3l4 4-4 4"
