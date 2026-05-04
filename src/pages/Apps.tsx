@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { works } from '../data/works'
 
-const appWorks = works.filter((w) => w.category === 'game')
+const appWorks = works.filter((w) => w.showInApps)
 
 const gradients: Record<string, { bg: string; accent: string; glow: string }> = {
   blue: {
@@ -70,7 +70,7 @@ export default function Apps() {
           transition={{ duration: 0.5, delay: 0.18 }}
           className="text-gray-400 text-lg max-w-md mx-auto leading-relaxed"
         >
-          アルゴリズムとハードウェアで、ゲームの可能性を広げるプロジェクト群。
+          楽しみ方の可能性を広げる。
         </motion.p>
       </section>
 
