@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider, Outlet, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 import Nav from './components/Nav'
 import Footer from './components/Footer'
@@ -10,10 +10,15 @@ import BlogPost from './pages/BlogPost'
 import Log from './pages/Log'
 import LogPost from './pages/LogPost'
 import Support from './pages/Support'
+import MahjongLanding from './pages/MahjongLanding'
+import HonnemawolfLanding from './pages/HonnemawolfLanding'
+import GuessRankLanding from './pages/GuessRankLanding'
 
 function Layout() {
+  const { pathname } = useLocation()
+  const isDark = pathname === '/'
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className={`min-h-screen flex flex-col ${isDark ? 'bg-[#06080f]' : 'bg-white'}`}>
       <Nav />
       <div className="flex-1">
         <AnimatePresence mode="wait">
@@ -38,6 +43,9 @@ const router = createBrowserRouter([
       { path: 'log', element: <Log /> },
       { path: 'log/:slug', element: <LogPost /> },
       { path: 'support/mahjong-ai', element: <Support /> },
+      { path: 'apps/mahjong-ai', element: <MahjongLanding /> },
+      { path: 'apps/honnemawolf', element: <HonnemawolfLanding /> },
+      { path: 'apps/guess-rank', element: <GuessRankLanding /> },
     ],
   },
 ])
