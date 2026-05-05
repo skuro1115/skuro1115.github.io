@@ -63,7 +63,7 @@ export default function WorkDetail() {
           ))}
         </div>
 
-        <div className="mt-10 flex gap-4">
+        <div className="mt-10 flex flex-wrap gap-3">
           {work.appStoreUrl && (
             <a
               href={work.appStoreUrl}
@@ -73,6 +73,30 @@ export default function WorkDetail() {
             >
               App Store で見る
             </a>
+          )}
+          {work.externalUrl && (
+            <a
+              href={work.externalUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 border border-border text-sm font-medium rounded-lg hover:border-gray-300 hover:bg-surface transition-colors"
+            >
+              プロダクトページ
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 14 14">
+                <path d="M5 3h6v6M11 3L4 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </a>
+          )}
+          {work.hasLanding && !work.externalUrl && (
+            <Link
+              to={`/apps/${work.id}`}
+              className="inline-flex items-center gap-2 px-4 py-2 border border-border text-sm font-medium rounded-lg hover:border-gray-300 hover:bg-surface transition-colors"
+            >
+              プロダクトページ
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 14 14">
+                <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </Link>
           )}
           {work.githubUrl && (
             <a

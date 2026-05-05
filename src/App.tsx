@@ -11,7 +11,6 @@ import Log from './pages/Log'
 import LogPost from './pages/LogPost'
 import Support from './pages/Support'
 import MahjongLanding from './pages/MahjongLanding'
-import HonnemawolfLanding from './pages/HonnemawolfLanding'
 import GuessRankLanding from './pages/GuessRankLanding'
 
 function Layout() {
@@ -44,7 +43,6 @@ const router = createBrowserRouter([
       { path: 'log/:slug', element: <LogPost /> },
       { path: 'support/mahjong-ai', element: <Support /> },
       { path: 'apps/mahjong-ai', element: <MahjongLanding /> },
-      { path: 'apps/honnemawolf', element: <HonnemawolfLanding /> },
       { path: 'apps/guess-rank', element: <GuessRankLanding /> },
     ],
   },

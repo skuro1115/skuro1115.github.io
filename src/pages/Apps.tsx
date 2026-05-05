@@ -133,31 +133,41 @@ function AppCard({ work }: { work: Work }) {
               App Store
             </a>
           )}
-          {work.githubUrl && (
+          {work.externalUrl ? (
             <a
-              href={work.githubUrl}
+              href={work.externalUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-white/20 text-white text-xs font-medium hover:bg-white/10 transition-colors"
+              className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg border border-white/10 text-gray-400 text-xs font-medium hover:text-white hover:border-white/30 transition-colors ml-auto"
             >
-              GitHub
+              View Product Page
+              <svg className="w-3 h-3" fill="none" viewBox="0 0 14 14">
+                <path
+                  d="M5 3h6v6M11 3L4 10"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
             </a>
+          ) : (
+            <Link
+              to={`/apps/${work.id}`}
+              className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg border border-white/10 text-gray-400 text-xs font-medium hover:text-white hover:border-white/30 transition-colors ml-auto"
+            >
+              View Product Page
+              <svg className="w-3 h-3" fill="none" viewBox="0 0 14 14">
+                <path
+                  d="M3 7h8M7 3l4 4-4 4"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </Link>
           )}
-          <Link
-            to={`/apps/${work.id}`}
-            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg border border-white/10 text-gray-400 text-xs font-medium hover:text-white hover:border-white/30 transition-colors ml-auto"
-          >
-            View Product Page
-            <svg className="w-3 h-3" fill="none" viewBox="0 0 14 14">
-              <path
-                d="M3 7h8M7 3l4 4-4 4"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </Link>
         </div>
       </div>
     </motion.div>
