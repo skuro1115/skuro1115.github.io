@@ -34,7 +34,6 @@ const badgeStyle: Record<string, string> = {
 
 function WorkCard({ work }: { work: Work }) {
   const { stars } = useGitHubStats(work.githubUrl)
-  const target = work.hasLanding ? `/apps/${work.id}` : `/works/${work.id}`
 
   return (
     <motion.div
@@ -42,7 +41,7 @@ function WorkCard({ work }: { work: Work }) {
       whileHover={{ y: -4, transition: { duration: 0.2, ease: 'easeOut' } }}
     >
       <Link
-        to={target}
+        to={`/works/${work.id}`}
         className="group block p-5 rounded-xl border border-border bg-white hover:border-gray-300 hover:shadow-md transition-[border-color,box-shadow]"
       >
         <div className="flex items-start justify-between mb-3">
@@ -66,11 +65,6 @@ function WorkCard({ work }: { work: Work }) {
           {stars > 0 && (
             <span className="font-mono text-xs text-subtle ml-auto">
               ★ {stars}
-            </span>
-          )}
-          {work.hasLanding && stars === 0 && (
-            <span className="font-mono text-[10px] text-accent ml-auto">
-              Learn more →
             </span>
           )}
         </div>
