@@ -36,6 +36,15 @@ export default function Footer() {
           >
             Email
           </a>
+          <Link
+            to="/donate"
+            data-track="donate-footer-click"
+            className={`transition-colors ${
+              isDark ? 'hover:text-white' : 'hover:text-gray-900'
+            }`}
+          >
+            ☕ Support
+          </Link>
         </div>
         <Link
           to="/log"
