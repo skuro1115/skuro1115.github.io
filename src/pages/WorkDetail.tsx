@@ -1,6 +1,8 @@
 import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { works } from '../data/works'
+import { blogPosts } from '../data/blog'
+import { useDocumentMeta } from '../hooks/useDocumentMeta'
 
 const page = {
   initial: { opacity: 0, y: 8 },
@@ -17,6 +19,16 @@ const badgeStyle: Record<string, string> = {
 export default function WorkDetail() {
   const { id } = useParams<{ id: string }>()
   const work = works.find((w) => w.id === id)
+  const relatedPosts = work?.relatedPostSlugs
+    ? blogPosts.filter((p) => work.relatedPostSlugs!.includes(p.slug))
+    : []
+
+  useDocumentMeta({
+    title: work?.title ?? 'Works',
+    description: work?.shortDesc,
+    image: work?.iconUrl,
+    type: 'article',
+  })
 
   if (!work) {
     return (
@@ -69,6 +81,9 @@ export default function WorkDetail() {
               href={work.appStoreUrl}
               target="_blank"
               rel="noopener noreferrer"
+              data-track="app-store"
+              data-track-app={work.id}
+              data-track-source="work-detail"
               className="inline-flex items-center gap-2 px-4 py-2 bg-accent text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors"
             >
               App Store で見る
@@ -79,6 +94,9 @@ export default function WorkDetail() {
               href={work.externalUrl}
               target="_blank"
               rel="noopener noreferrer"
+              data-track="external-lp"
+              data-track-app={work.id}
+              data-track-source="work-detail"
               className="inline-flex items-center gap-2 px-4 py-2 border border-border text-sm font-medium rounded-lg hover:border-gray-300 hover:bg-surface transition-colors"
             >
               プロダクトページ
@@ -109,6 +127,32 @@ export default function WorkDetail() {
             </a>
           )}
         </div>
+
+        {relatedPosts.length > 0 && (
+          <section className="mt-16 pt-10 border-t border-border">
+            <h2 className="font-mono text-xs text-subtle uppercase tracking-widest mb-4">
+              Related Posts
+            </h2>
+            <ul className="divide-y divide-border">
+              {relatedPosts.map((post) => (
+                <li key={post.slug}>
+                  <Link
+                    to={`/blog/${post.slug}`}
+                    className="group block py-4"
+                  >
+                    <div className="flex items-center gap-3 mb-1">
+                      <span className="font-mono text-xs text-subtle">{post.date}</span>
+                    </div>
+                    <h3 className="font-medium text-gray-900 group-hover:text-accent transition-colors mb-1">
+                      {post.title}
+                    </h3>
+                    <p className="text-sm text-muted">{post.excerpt}</p>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
       </div>
     </motion.main>
   )

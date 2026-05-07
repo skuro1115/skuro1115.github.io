@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react'
 import { createBrowserRouter, RouterProvider, Outlet, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 import Nav from './components/Nav'
@@ -10,8 +11,14 @@ import BlogPost from './pages/BlogPost'
 import Log from './pages/Log'
 import LogPost from './pages/LogPost'
 import Support from './pages/Support'
-import MahjongLanding from './pages/MahjongLanding'
-import GuessRankLanding from './pages/GuessRankLanding'
+import NotFound from './pages/NotFound'
+
+const MahjongLanding = lazy(() => import('./pages/MahjongLanding'))
+const GuessRankLanding = lazy(() => import('./pages/GuessRankLanding'))
+
+function RouteFallback() {
+  return <div className="min-h-[40vh]" />
+}
 
 function Layout() {
   const { pathname } = useLocation()
@@ -21,7 +28,9 @@ function Layout() {
       <Nav />
       <div className="flex-1">
         <AnimatePresence mode="wait">
-          <Outlet />
+          <Suspense fallback={<RouteFallback />}>
+            <Outlet />
+          </Suspense>
         </AnimatePresence>
       </div>
       <Footer />
@@ -44,6 +53,7 @@ const router = createBrowserRouter([
       { path: 'support/mahjong-ai', element: <Support /> },
       { path: 'apps/mahjong-ai', element: <MahjongLanding /> },
       { path: 'apps/guess-rank', element: <GuessRankLanding /> },
+      { path: '*', element: <NotFound /> },
     ],
   },
 ])

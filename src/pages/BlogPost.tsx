@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { blogPosts } from '../data/blog'
+import { useDocumentMeta } from '../hooks/useDocumentMeta'
 
 const page = {
   initial: { opacity: 0, y: 8 },
@@ -11,6 +12,12 @@ const page = {
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>()
   const post = blogPosts.find((p) => p.slug === slug)
+
+  useDocumentMeta({
+    title: post?.title ?? 'Blog',
+    description: post?.excerpt,
+    type: 'article',
+  })
 
   if (!post) {
     return (

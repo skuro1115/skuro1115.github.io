@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { works, type Work } from '../data/works'
+import { useDocumentMeta } from '../hooks/useDocumentMeta'
 
 const appWorks = works.filter((w) => w.showInApps)
 
@@ -128,6 +129,9 @@ function AppCard({ work }: { work: Work }) {
               href={work.appStoreUrl}
               target="_blank"
               rel="noopener noreferrer"
+              data-track="app-store"
+              data-track-app={work.id}
+              data-track-source="apps"
               className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gradient-to-r ${g.accent} text-white text-xs font-semibold hover:opacity-90 transition-opacity`}
             >
               App Store
@@ -138,6 +142,9 @@ function AppCard({ work }: { work: Work }) {
               href={work.externalUrl}
               target="_blank"
               rel="noopener noreferrer"
+              data-track="external-lp"
+              data-track-app={work.id}
+              data-track-source="apps"
               className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg border border-white/10 text-gray-400 text-xs font-medium hover:text-white hover:border-white/30 transition-colors ml-auto"
             >
               View Product Page
@@ -154,6 +161,9 @@ function AppCard({ work }: { work: Work }) {
           ) : (
             <Link
               to={`/apps/${work.id}`}
+              data-track="view-product"
+              data-track-app={work.id}
+              data-track-source="apps"
               className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg border border-white/10 text-gray-400 text-xs font-medium hover:text-white hover:border-white/30 transition-colors ml-auto"
             >
               View Product Page
@@ -175,6 +185,11 @@ function AppCard({ work }: { work: Work }) {
 }
 
 export default function Apps() {
+  useDocumentMeta({
+    title: 'Apps',
+    description: '友達と遊ぶパーティーゲームから日々を支えるツールまで。skuro が公開しているアプリの一覧。',
+  })
+
   return (
     <motion.main variants={page} initial="initial" animate="animate" exit="exit">
       {/* Page hero */}

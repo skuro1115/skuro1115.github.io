@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { works } from '../data/works'
+import { useDocumentMeta } from '../hooks/useDocumentMeta'
 
 const APP_STORE_URL = ''
 const GITHUB_URL = 'https://github.com/skuro1115/GuessRank-GameCore-iOS'
@@ -64,15 +65,32 @@ function NavBar() {
       style={{ background: `${BRAND.primary}f2` }}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-        <a href="#hero" className="flex items-center gap-2 text-white font-bold text-lg">
-          <img
-            src="/guess-rank/icon.png"
-            alt=""
-            className="w-7 h-7 rounded-md"
-            aria-hidden="true"
-          />
-          GuessRank
-        </a>
+        <div className="flex items-center gap-3 sm:gap-5">
+          <Link
+            to="/"
+            className="flex items-center gap-1 text-white/80 hover:text-white text-xs font-medium transition-colors"
+          >
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 14 14" aria-hidden="true">
+              <path
+                d="M11 7H3M7 3L3 7l4 4"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+            <span className="hidden sm:inline">Apps</span>
+          </Link>
+          <a href="#hero" className="flex items-center gap-2 text-white font-bold text-lg">
+            <img
+              src="/guess-rank/icon.png"
+              alt=""
+              className="w-7 h-7 rounded-md"
+              aria-hidden="true"
+            />
+            GuessRank
+          </a>
+        </div>
         <div className="hidden md:flex items-center gap-8">
           {links.map((l) => (
             <a
@@ -130,6 +148,13 @@ function NavBar() {
               {l.label}
             </a>
           ))}
+          <Link
+            to="/"
+            onClick={() => setMenuOpen(false)}
+            className="block text-white/90 hover:text-white text-sm"
+          >
+            ← 他のアプリを見る
+          </Link>
           <a
             href="#download"
             onClick={() => setMenuOpen(false)}
@@ -184,6 +209,9 @@ function HeroSection({ work }: { work: { title: string; tags: string[]; catchphr
                   href={APP_STORE_URL}
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-track="app-store"
+                  data-track-app="guess-rank"
+                  data-track-source="hero"
                   className="inline-flex items-center gap-2 px-7 py-3.5 bg-white rounded-full font-bold text-sm hover:bg-white/95 hover:-translate-y-0.5 transition-all shadow-lg"
                   style={{ color: BRAND.primaryDark }}
                 >
@@ -203,6 +231,9 @@ function HeroSection({ work }: { work: { title: string; tags: string[]; catchphr
                 href={GITHUB_URL}
                 target="_blank"
                 rel="noopener noreferrer"
+                data-track="github"
+                data-track-app="guess-rank"
+                data-track-source="hero"
                 className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/15 text-white rounded-full font-bold text-sm hover:bg-white/25 transition-all border border-white/40 backdrop-blur-sm"
               >
                 <GithubIcon />
@@ -529,6 +560,9 @@ function CTASection() {
               href={APP_STORE_URL}
               target="_blank"
               rel="noopener noreferrer"
+              data-track="app-store"
+              data-track-app="guess-rank"
+              data-track-source="cta"
               className="inline-flex items-center gap-2 px-8 py-4 bg-white text-gray-900 rounded-full font-bold text-sm hover:-translate-y-0.5 hover:shadow-xl transition-all shadow-lg"
             >
               <AppleIcon />
@@ -544,11 +578,153 @@ function CTASection() {
             href={GITHUB_URL}
             target="_blank"
             rel="noopener noreferrer"
+            data-track="github"
+            data-track-app="guess-rank"
+            data-track-source="cta"
             className="inline-flex items-center gap-2 px-8 py-4 bg-white/15 text-white rounded-full font-bold text-sm hover:bg-white/25 transition-all border border-white/40 backdrop-blur-sm"
           >
             <GithubIcon />
             GitHub
           </a>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function OtherAppsSection({ currentId }: { currentId: string }) {
+  const others = works.filter((w) => w.showInApps && w.id !== currentId)
+  if (others.length === 0) return null
+
+  return (
+    <section
+      className="py-16 md:py-20"
+      style={{
+        background: `linear-gradient(180deg, #ffffff 0%, ${BRAND.cream} 100%)`,
+      }}
+    >
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="flex items-end justify-between mb-8">
+          <div>
+            <p className="text-xs font-mono text-gray-500 mb-1.5">MORE FROM SKURO</p>
+            <h2 className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight">
+              他のアプリも見てみる
+            </h2>
+          </div>
+          <Link
+            to="/"
+            className="hidden sm:inline-flex items-center gap-1.5 text-sm font-semibold transition-colors"
+            style={{ color: BRAND.primaryDark }}
+          >
+            Apps 一覧へ
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 14 14">
+              <path
+                d="M3 7h8M7 3l4 4-4 4"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {others.map((w) => {
+            const isExternal = !!w.externalUrl
+            const target = w.externalUrl ?? `/apps/${w.id}`
+            const cardBody = (
+              <>
+                <div className="flex items-start gap-4">
+                  {w.iconUrl ? (
+                    <img
+                      src={w.iconUrl}
+                      alt=""
+                      className="w-14 h-14 rounded-xl shadow-sm ring-1 ring-black/5 flex-shrink-0"
+                      aria-hidden="true"
+                    />
+                  ) : (
+                    <div
+                      className="w-14 h-14 rounded-xl flex items-center justify-center text-white font-bold text-xl flex-shrink-0"
+                      style={{ background: BRAND.primary }}
+                    >
+                      {w.title.charAt(0)}
+                    </div>
+                  )}
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 mb-1">
+                      <h3 className="font-bold text-gray-900 truncate">{w.title}</h3>
+                      {isExternal && (
+                        <svg
+                          className="w-3 h-3 text-gray-400 flex-shrink-0"
+                          fill="none"
+                          viewBox="0 0 14 14"
+                          aria-hidden="true"
+                        >
+                          <path
+                            d="M5 3h6v6M11 3L4 10"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      )}
+                    </div>
+                    <p className="text-xs text-gray-500 leading-relaxed line-clamp-2">
+                      {w.shortDesc}
+                    </p>
+                  </div>
+                </div>
+              </>
+            )
+            const baseClass =
+              'block bg-white rounded-2xl p-5 border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all'
+            return isExternal ? (
+              <a
+                key={w.id}
+                href={target}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-track="external-lp"
+                data-track-app={w.id}
+                data-track-source="other-apps"
+                className={baseClass}
+              >
+                {cardBody}
+              </a>
+            ) : (
+              <Link
+                key={w.id}
+                to={target}
+                data-track="view-product"
+                data-track-app={w.id}
+                data-track-source="other-apps"
+                className={baseClass}
+              >
+                {cardBody}
+              </Link>
+            )
+          })}
+        </div>
+
+        <div className="mt-8 sm:hidden text-center">
+          <Link
+            to="/"
+            className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-sm font-semibold border-2 transition-colors"
+            style={{ color: BRAND.primaryDark, borderColor: BRAND.primary }}
+          >
+            Apps 一覧へ
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 14 14">
+              <path
+                d="M3 7h8M7 3l4 4-4 4"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </Link>
         </div>
       </div>
     </section>
@@ -596,6 +772,13 @@ function GithubIcon() {
 
 export default function GuessRankLanding() {
   const work = works.find((w) => w.id === 'guess-rank')
+
+  useDocumentMeta({
+    title: 'GuessRank — 友達のTop3を当てるパーティーゲーム',
+    description: '友達の「好み」のTop3を予想するパーティーゲーム。1台のスマホで遊べる、ルール30秒、登録不要。',
+    image: work?.iconUrl,
+  })
+
   if (!work) return null
 
   return (
@@ -607,6 +790,7 @@ export default function GuessRankLanding() {
       <HowToPlaySection />
       <FeaturesSection />
       <CTASection />
+      <OtherAppsSection currentId={work.id} />
       <LandingFooter />
       <div className="bg-[#0f0f17] border-t border-gray-800/60 py-4">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">

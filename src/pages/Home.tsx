@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { works, type Work } from '../data/works'
 import { useGitHubStats } from '../hooks/useGitHubStats'
+import { useDocumentMeta } from '../hooks/useDocumentMeta'
 
 const page = {
   initial: { opacity: 0, y: 8 },
@@ -74,6 +75,11 @@ function WorkCard({ work }: { work: Work }) {
 }
 
 export default function Home() {
+  useDocumentMeta({
+    title: 'Works',
+    description: 'iOSアプリ・アルゴリズム研究・VRシミュレーション・ハードウェア自動化まで。skuro1115 がこれまでに作ったものの一覧。',
+  })
+
   return (
     <motion.main variants={page} initial="initial" animate="animate" exit="exit">
       {/* Hero */}

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { blogPosts } from '../data/blog'
+import { useDocumentMeta } from '../hooks/useDocumentMeta'
 
 const page = {
   initial: { opacity: 0, y: 8 },
@@ -26,6 +27,11 @@ const listItem = {
 }
 
 export default function Blog() {
+  useDocumentMeta({
+    title: 'Blog',
+    description: '技術メモと調査ログ。アルゴリズム・iOS開発・Web 周りの実装記録。',
+  })
+
   return (
     <motion.main variants={page} initial="initial" animate="animate" exit="exit">
       <div className="max-w-2xl mx-auto px-6 py-16">

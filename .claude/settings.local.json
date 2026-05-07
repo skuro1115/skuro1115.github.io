@@ -7,7 +7,14 @@
       "Bash(npm install *)",
       "Bash(npx tailwindcss *)",
       "Bash(npm run *)",
-      "Bash(curl -s http://localhost:5173)"
+      "Bash(curl -s http://localhost:5173)",
+      "Bash(gh run *)",
+      "Bash(gh api *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git switch *)",
+      "Bash(gh pr *)",
+      "Bash(claude mcp *)",
+      "Read(//Users/kurodashion/.claude/skills/worklog/**)"
     ]
   }
 }
