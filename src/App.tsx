@@ -25,8 +25,14 @@ function Layout() {
   const isDark = pathname === '/'
   return (
     <div className={`min-h-screen flex flex-col ${isDark ? 'bg-[#06080f]' : 'bg-white'}`}>
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[60] focus:px-3 focus:py-2 focus:bg-white focus:text-gray-900 focus:rounded focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-accent"
+      >
+        コンテンツへスキップ
+      </a>
       <Nav />
-      <div className="flex-1">
+      <div id="main-content" className="flex-1">
         <AnimatePresence mode="wait">
           <Suspense fallback={<RouteFallback />}>
             <Outlet />

@@ -115,7 +115,9 @@ function NavBar() {
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="md:hidden text-white p-2"
-          aria-label="メニュー"
+          aria-label={menuOpen ? 'メニューを閉じる' : 'メニューを開く'}
+          aria-expanded={menuOpen}
+          aria-controls="guessrank-mobile-menu"
         >
           <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             {menuOpen ? (
@@ -138,6 +140,7 @@ function NavBar() {
       </div>
       {menuOpen && (
         <div
+          id="guessrank-mobile-menu"
           className="md:hidden border-t border-white/20 px-4 py-4 space-y-3"
           style={{ background: BRAND.primary }}
         >
