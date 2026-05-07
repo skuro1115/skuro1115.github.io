@@ -39,13 +39,14 @@ export default function Footer() {
         </div>
         <Link
           to="/log"
+          aria-label="開発ログ"
           className={`transition-colors text-xs ${
             isDark
               ? 'text-white/10 hover:text-white/30'
               : 'text-border hover:text-subtle'
           }`}
         >
-          ·
+          <span aria-hidden="true">·</span>
         </Link>
       </div>
     </footer>

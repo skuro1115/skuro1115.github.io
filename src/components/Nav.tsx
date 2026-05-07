@@ -21,7 +21,7 @@ export default function Nav() {
         >
           skuro
         </Link>
-        <nav className="flex items-center gap-6">
+        <nav aria-label="メインナビゲーション" className="flex items-center gap-6">
           {[
             { to: '/', label: 'Apps', end: true },
             { to: '/works', label: 'Works', end: false },
