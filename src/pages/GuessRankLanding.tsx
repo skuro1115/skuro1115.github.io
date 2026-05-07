@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { works } from '../data/works'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
 
-const APP_STORE_URL = ''
+const APP_STORE_URL = 'https://apps.apple.com/jp/app/guessrank/id6763001964'
 const GITHUB_URL = 'https://github.com/skuro1115/GuessRank-GameCore-iOS'
 
 const BRAND = {
@@ -553,7 +553,7 @@ function CTASection() {
           <br className="sm:hidden" />
           当てに行こう。
         </h2>
-        <p className="text-white/85 mb-10">無料予定・通信不要・アカウント登録なし</p>
+        <p className="text-white/85 mb-10">無料・通信不要・アカウント登録なし</p>
         <div className="flex flex-wrap justify-center gap-4">
           {APP_STORE_URL ? (
             <a
