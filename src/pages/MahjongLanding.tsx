@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { works } from '../data/works'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
+import { AppIcon } from '../components/AppIcon'
 
 const BRAND = {
   primary: '#0F4C3A',
@@ -197,10 +198,13 @@ function HeroSection({
           <div className="flex-1 text-center md:text-left z-10">
             <div className="flex items-center gap-3 justify-center md:justify-start mb-6">
               {iconUrl && (
-                <img
+                <AppIcon
                   src={iconUrl}
+                  title="麻雀AI"
                   alt="麻雀AI アイコン"
                   className="w-14 h-14 rounded-2xl shadow-lg ring-1 ring-black/10"
+                  fallbackStyle={{ background: BRAND.primary }}
+                  fallbackTextClassName="text-white font-bold text-lg"
                 />
               )}
               <span className="text-white/85 font-mono text-sm tracking-wide">
@@ -637,21 +641,14 @@ function OtherAppsSection({ currentId }: { currentId: string }) {
             const target = w.externalUrl ?? `/apps/${w.id}`
             const cardBody = (
               <div className="flex items-start gap-4">
-                {w.iconUrl ? (
-                  <img
-                    src={w.iconUrl}
-                    alt=""
-                    className="w-14 h-14 rounded-xl shadow-sm ring-1 ring-black/5 flex-shrink-0"
-                    aria-hidden="true"
-                  />
-                ) : (
-                  <div
-                    className="w-14 h-14 rounded-xl flex items-center justify-center text-white font-bold text-xl flex-shrink-0"
-                    style={{ background: BRAND.primary }}
-                  >
-                    {w.title.charAt(0)}
-                  </div>
-                )}
+                <AppIcon
+                  src={w.iconUrl}
+                  title={w.title}
+                  ariaHidden
+                  className="w-14 h-14 rounded-xl shadow-sm ring-1 ring-black/5 flex-shrink-0"
+                  fallbackStyle={{ background: BRAND.primary }}
+                  fallbackTextClassName="text-white font-bold text-xl"
+                />
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-1">
                     <h3 className="font-bold text-gray-900 truncate">{w.title}</h3>

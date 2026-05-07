@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { works, type Work } from '../data/works'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
+import { AppIcon } from '../components/AppIcon'
 
 const appWorks = works.filter((w) => w.showInApps)
 
@@ -58,30 +59,6 @@ const cardItem = {
   },
 }
 
-type Gradient = { bg: string; accent: string; glow: string }
-
-function AppIcon({ work, gradient }: { work: Work; gradient: Gradient }) {
-  if (work.iconUrl) {
-    return (
-      <img
-        src={work.iconUrl}
-        alt={`${work.title} icon`}
-        className="w-20 h-20 rounded-2xl shadow-lg flex-shrink-0"
-      />
-    )
-  }
-
-  return (
-    <div
-      className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${gradient.accent} flex items-center justify-center shadow-lg flex-shrink-0`}
-    >
-      <span className="text-3xl font-black text-white leading-none">
-        {work.title.slice(0, 1)}
-      </span>
-    </div>
-  )
-}
-
 function AppCard({ work }: { work: Work }) {
   const g = gradients[work.color] ?? defaultGradient
 
@@ -93,7 +70,14 @@ function AppCard({ work }: { work: Work }) {
     >
       <div className="rounded-3xl bg-black/50 backdrop-blur-xl p-6 h-full flex flex-col">
         <div className="flex items-start gap-4 mb-4">
-          <AppIcon work={work} gradient={g} />
+          <AppIcon
+            src={work.iconUrl}
+            title={work.title}
+            alt={`${work.title} icon`}
+            className="w-20 h-20 rounded-2xl shadow-lg flex-shrink-0"
+            fallbackClassName={`bg-gradient-to-br ${g.accent}`}
+            fallbackTextClassName="text-3xl font-black text-white"
+          />
           <div className="flex-1 min-w-0">
             {work.badge && (
               <span
