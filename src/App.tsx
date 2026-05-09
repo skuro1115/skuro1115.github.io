@@ -15,6 +15,7 @@ import NotFound from './pages/NotFound'
 
 const MahjongLanding = lazy(() => import('./pages/MahjongLanding'))
 const GuessRankLanding = lazy(() => import('./pages/GuessRankLanding'))
+const Donate = lazy(() => import('./pages/Donate'))
 
 function RouteFallback() {
   return <div className="min-h-[40vh]" />
@@ -59,6 +60,7 @@ const router = createBrowserRouter([
       { path: 'support/mahjong-ai', element: <Support /> },
       { path: 'apps/mahjong-ai', element: <MahjongLanding /> },
       { path: 'apps/guess-rank', element: <GuessRankLanding /> },
+      { path: 'donate', element: <Donate /> },
       { path: '*', element: <NotFound /> },
     ],
   },
