@@ -16,5 +16,18 @@
       "Bash(claude mcp *)",
       "Read(//Users/kurodashion/.claude/skills/worklog/**)"
     ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/build-on-edit.sh\""
+          }
+        ]
+      }
+    ]
   }
 }
