@@ -6,6 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "generate:repos": "node scripts/generate-articles.js",
+    "review:generated": "node scripts/review-generated-posts.js",
+    "skill:auto": "node scripts/skills/auto_workflow.js",
     "lint": "eslint .",
     "preview": "vite preview"
   },

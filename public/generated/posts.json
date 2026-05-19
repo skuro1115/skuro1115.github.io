@@ -1,0 +1,125 @@
+{
+  "repo": "video-workflow",
+  "posts": [
+    {
+      "slug": "video-workflow-53f2dfc-1",
+      "title": "Merge pull request #10 from skuro1115/claude/inbox-config-workflow",
+      "date": "2026-05-16",
+      "tags": [
+        "video-workflow",
+        "repo-sync",
+        "tech-blog"
+      ],
+      "excerpt": "作業の概要と学び: Merge pull request #10 from skuro1115/claude/inbox-config-workflow",
+      "body": "## 背景と目的\nこのコミットでは、Merge pull request #10 from skuro1115/claude/inbox-config-workflow を中心に手を入れました。\n\n## 取り組み\nこのコミットでは、Merge pull request #10 from skuro1115/claude/inbox-config-workflow に関わる作業を行いました。\n\n## 学び\n次に同じような変更をする際の設計やテストについて考えました。\n\n---\n*コミット日時:* 2026-05-16 | *著者:* shion"
+    },
+    {
+      "slug": "video-workflow-546c717-2",
+      "title": "CI: install PyYAML so config_loader / inbox / naming tests can import yaml",
+      "date": "2026-05-16",
+      "tags": [
+        "video-workflow",
+        "repo-sync",
+        "tech-blog"
+      ],
+      "excerpt": "インフラ・デプロイの選定理由: ci: install PyYAML so config_loader / inbox / naming tests can import yaml",
+      "body": "## 背景と目的\nこのコミットでは、CI: install PyYAML so config_loader / inbox / naming tests can import yaml を中心に手を入れました。\n\n## 取り組み\nデプロイやCIの安定性を高めるための構成を整えました。\n\n## 学び\n運用観点を考慮すると、失敗時のログと再デプロイの手順を明確にしておくことが重要です。\n\n---\n*コミット日時:* 2026-05-16 | *著者:* Kuroda"
+    },
+    {
+      "slug": "video-workflow-34e2c29-3",
+      "title": "追加 config.yaml + *.task.yaml workflow as primary UX",
+      "date": "2026-05-16",
+      "tags": [
+        "video-workflow",
+        "repo-sync",
+        "tech-blog"
+      ],
+      "excerpt": "新機能を実装した背景と設計: feat(inbox): add config.yaml + *.task.yaml workflow as primary UX",
+      "body": "## 背景と目的\nこのコミットでは、追加 config.yaml + *.task.yaml workflow as primary UX を中心に手を入れました。\n\n## 取り組み\nこのコミットでは、追加 config.yaml + *.task.yaml workflow as primary UX に関わる作業を行いました。\n\n## 学び\n次に同じような変更をする際の設計やテストについて考えました。\n\n---\n*コミット日時:* 2026-05-16 | *著者:* Kuroda"
+    },
+    {
+      "slug": "video-workflow-feca70b-4",
+      "title": "追加 --export-thumbnails for visual clip-plan review (#9)",
+      "date": "2026-05-13",
+      "tags": [
+        "video-workflow",
+        "repo-sync",
+        "tech-blog"
+      ],
+      "excerpt": "新機能を実装した背景と設計: feat(thumbnails): add --export-thumbnails for visual clip-plan review (#9)",
+      "body": "## 背景と目的\nこのコミットでは、追加 --export-thumbnails for visual clip-plan review (#9) を中心に手を入れました。\n\n## 取り組み\nこのコミットでは、追加 --export-thumbnails for visual clip-plan review (#9) に関わる作業を行いました。\n\n## 学び\n次に同じような変更をする際の設計やテストについて考えました。\n\n---\n*コミット日時:* 2026-05-13 | *著者:* shion"
+    },
+    {
+      "slug": "video-workflow-d2eda49-5",
+      "title": "追加 comment_reaction detector + --settings loader + Docker (#8)",
+      "date": "2026-05-13",
+      "tags": [
+        "video-workflow",
+        "repo-sync",
+        "tech-blog"
+      ],
+      "excerpt": "新機能を実装した背景と設計: feat(detector+config): add comment_reaction detector + --settings loader + Docker (#8",
+      "body": "## 背景と目的\nこのコミットでは、追加 comment_reaction detector + --settings loader + Docker (#8) を中心に手を入れました。\n\n## 取り組み\nこのコミットでは、追加 comment_reaction detector + --settings loader + Docker (#8) に関わる作業を行いました。\n\n## 学び\n次に同じような変更をする際の設計やテストについて考えました。\n\n---\n*コミット日時:* 2026-05-13 | *著者:* shion"
+    },
+    {
+      "slug": "video-workflow-3690107-6",
+      "title": "追加 scripts/fetch.py + --url for YouTube/Twitch ingest (#7)",
+      "date": "2026-05-10",
+      "tags": [
+        "video-workflow",
+        "repo-sync",
+        "tech-blog"
+      ],
+      "excerpt": "新機能を実装した背景と設計: feat(ingest): add scripts/fetch.py + --url for YouTube/Twitch ingest (#7)",
+      "body": "## 背景と目的\nこのコミットでは、追加 scripts/fetch.py + --url for YouTube/Twitch ingest (#7) を中心に手を入れました。\n\n## 取り組み\nこのコミットでは、追加 scripts/fetch.py + --url for YouTube/Twitch ingest (#7) に関わる作業を行いました。\n\n## 学び\n次に同じような変更をする際の設計やテストについて考えました。\n\n---\n*コミット日時:* 2026-05-10 | *著者:* shion"
+    },
+    {
+      "slug": "video-workflow-ed85362-7",
+      "title": "Record per-stage elapsed time in output/run_timing.json (#6)",
+      "date": "2026-05-09",
+      "tags": [
+        "video-workflow",
+        "repo-sync",
+        "tech-blog"
+      ],
+      "excerpt": "新機能を実装した背景と設計: feat(timing): record per-stage elapsed time in output/run_timing.json (#6)",
+      "body": "## 背景と目的\nこのコミットでは、Record per-stage elapsed time in output/run_timing.json (#6) を中心に手を入れました。\n\n## 取り組み\nこのコミットでは、Record per-stage elapsed time in output/run_timing.json (#6) に関わる作業を行いました。\n\n## 学び\n次に同じような変更をする際の設計やテストについて考えました。\n\n---\n*コミット日時:* 2026-05-09 | *著者:* shion"
+    },
+    {
+      "slug": "video-workflow-dc7ef2c-8",
+      "title": "追加 RRF fusion as alternative to weighted_sum (#5)",
+      "date": "2026-05-09",
+      "tags": [
+        "video-workflow",
+        "repo-sync",
+        "tech-blog"
+      ],
+      "excerpt": "新機能を実装した背景と設計: feat(composite): add RRF fusion as alternative to weighted_sum (#5)",
+      "body": "## 背景と目的\nこのコミットでは、追加 RRF fusion as alternative to weighted_sum (#5) を中心に手を入れました。\n\n## 取り組み\nこのコミットでは、追加 RRF fusion as alternative to weighted_sum (#5) に関わる作業を行いました。\n\n## 学び\n次に同じような変更をする際の設計やテストについて考えました。\n\n---\n*コミット日時:* 2026-05-09 | *著者:* shion"
+    },
+    {
+      "slug": "video-workflow-ec35911-9",
+      "title": "追加 scripts/eval.py — measure detector hit rate vs expected.json (#4)",
+      "date": "2026-05-09",
+      "tags": [
+        "video-workflow",
+        "repo-sync",
+        "tech-blog"
+      ],
+      "excerpt": "新機能を実装した背景と設計: feat(eval): add scripts/eval.py — measure detector hit rate vs expected.json (#4)",
+      "body": "## 背景と目的\nこのコミットでは、追加 scripts/eval.py — measure detector hit rate vs expected.json (#4) を中心に手を入れました。\n\n## 取り組み\nこのコミットでは、追加 scripts/eval.py — measure detector hit rate vs expected.json (#4) に関わる作業を行いました。\n\n## 学び\n次に同じような変更をする際の設計やテストについて考えました。\n\n---\n*コミット日時:* 2026-05-09 | *著者:* shion"
+    },
+    {
+      "slug": "video-workflow-cfca8f4-10",
+      "title": "追加 CI workflow, JSON schemas reference, と repo hygiene (#3)",
+      "date": "2026-05-09",
+      "tags": [
+        "video-workflow",
+        "repo-sync",
+        "tech-blog"
+      ],
+      "excerpt": "新機能を実装した背景と設計: chore: add CI workflow, JSON schemas reference, and repo hygiene (#3)",
+      "body": "## 背景と目的\nこのコミットでは、追加 CI workflow, JSON schemas reference, と repo hygiene (#3) を中心に手を入れました。\n\n## 取り組み\nデプロイやCIの安定性を高めるための構成を整えました。\n\n## 学び\n運用観点を考慮すると、失敗時のログと再デプロイの手順を明確にしておくことが重要です。\n\n---\n*コミット日時:* 2026-05-09 | *著者:* shion"
+    }
+  ]
+}

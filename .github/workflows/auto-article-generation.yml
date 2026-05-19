@@ -1,0 +1,36 @@
+name: Auto Article Generation
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 2 * * 1'
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm ci
+      - run: npm run generate:repos
+      - run: npm run review:generated
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b auto/articles/${{ github.run_id }}
+          git add public/generated
+          git diff --cached --quiet || (git commit -m "chore: auto generate article drafts (${{ github.run_id }})" && git push -u origin HEAD)
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore: auto generate article drafts"
+          branch: auto/articles/${{ github.run_id }}
+          title: "Auto-generate article drafts"
+          body: "This PR contains generated article drafts from the repository scan."
+          base: main
+          labels: auto-generated, docs
