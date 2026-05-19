@@ -1,0 +1,28 @@
+<html><head><meta charset="utf-8"><title>video-workflow</title><style>body{font-family:system-ui;padding:24px;max-width:840px;margin:auto}h1{font-size:28px;margin-bottom:6px}h2{font-size:18px;margin-top:20px}pre.readme{background:#f7f7f7;padding:12px;white-space:pre-wrap;border-radius:6px}</style></head><body>
+<h1>video-workflow</h1>
+<p><strong>ローカル名:</strong> video-workflow &nbsp; <strong>公開判定:</strong> public</p>
+<h2>README（抜粋）</h2><pre class="readme"># video-workflow
+
+長尺動画 / 配信アーカイブから盛り上がりポイントを検出し、段階的に短尺クリップへ加工するための自動化基盤。
+
+&gt; **Status: 複合検出（音声 + ライブチャット）動作中 (2026-05-09)**
+&gt; 検出器は `even` / `audio_rms` / `comment_density`（ライブチャット密度）/ `composite`（重み付き合成）の4種。`composite` はスコア重みを外部 JSON または対話入力で設定できる。字幕・LLM ベース検出器は未実装。
+
+---
+
+## ゴール
+
+- 1時間程度の動画 → メタデータ抽出...</pre>
+<h2>最近の変更（自動生成されたブログ風要約）</h2>
+<h3>Merge pull request #10 from skuro1115/claude/inbox-config-workflow</h3><p>作業の概要と学び: Merge pull request #10 from skuro1115/claude/inbox-config-workflow</p><p style="color:#666;font-size:13px">shion — 2026-05-16</p>
+<h3>ci: install PyYAML so config_loader / inbox / naming tests can import yaml</h3><p>作業の概要と学び: ci: install PyYAML so config_loader / inbox / naming tests can import yaml</p><p style="color:#666;font-size:13px">Kuroda — 2026-05-16</p>
+<h3>feat(inbox): add config.yaml + *.task.yaml workflow as primary UX</h3><p>新機能を実装した背景と設計: feat(inbox): add config.yaml + *.task.yaml workflow as primary UX</p><p style="color:#666;font-size:13px">Kuroda — 2026-05-16</p>
+<h3>feat(thumbnails): add --export-thumbnails for visual clip-plan review (#9)</h3><p>新機能を実装した背景と設計: feat(thumbnails): add --export-thumbnails for visual clip-plan review (#9)</p><p style="color:#666;font-size:13px">shion — 2026-05-13</p>
+<h3>feat(detector+config): add comment_reaction detector + --settings loader + Docker (#8)</h3><p>新機能を実装した背景と設計: feat(detector+config): add comment_reaction detector + --settings loader + Docker (#8)</p><p style="color:#666;font-size:13px">shion — 2026-05-13</p>
+<h3>feat(ingest): add scripts/fetch.py + --url for YouTube/Twitch ingest (#7)</h3><p>新機能を実装した背景と設計: feat(ingest): add scripts/fetch.py + --url for YouTube/Twitch ingest (#7)</p><p style="color:#666;font-size:13px">shion — 2026-05-10</p>
+<h3>feat(timing): record per-stage elapsed time in output/run_timing.json (#6)</h3><p>新機能を実装した背景と設計: feat(timing): record per-stage elapsed time in output/run_timing.json (#6)</p><p style="color:#666;font-size:13px">shion — 2026-05-09</p>
+<h3>feat(composite): add RRF fusion as alternative to weighted_sum (#5)</h3><p>新機能を実装した背景と設計: feat(composite): add RRF fusion as alternative to weighted_sum (#5)</p><p style="color:#666;font-size:13px">shion — 2026-05-09</p>
+<h3>feat(eval): add scripts/eval.py — measure detector hit rate vs expected.json (#4)</h3><p>新機能を実装した背景と設計: feat(eval): add scripts/eval.py — measure detector hit rate vs expected.json (#4)</p><p style="color:#666;font-size:13px">shion — 2026-05-09</p>
+<h3>chore: add CI workflow, JSON schemas reference, and repo hygiene (#3)</h3><p>新機能を実装した背景と設計: chore: add CI workflow, JSON schemas reference, and repo hygiene (#3)</p><p style="color:#666;font-size:13px">shion — 2026-05-09</p>
+<hr><p>自動生成日時: 2026-05-19T02:35:01.731Z</p>
+</body></html>
