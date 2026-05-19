@@ -1,0 +1,65 @@
+[
+  {
+    "name": "GuessRank",
+    "title": "GuessRank",
+    "remote": "https://github.com/skuro1115/GuessRank-GameCore-iOS.git",
+    "isPublic": true,
+    "commits": 10,
+    "works": 0,
+    "generatedAt": "2026-05-19T15:46:56.118Z"
+  },
+  {
+    "name": "HaipaiSaiten",
+    "title": "HaipaiSaiten",
+    "remote": "https://github.com/skuro1115/mahjongiOS.git",
+    "isPublic": true,
+    "commits": 1,
+    "works": 0,
+    "generatedAt": "2026-05-19T15:46:56.495Z"
+  },
+  {
+    "name": "focuslink",
+    "title": "focuslink",
+    "remote": "https://github.com/skuro1115/focuslink_ios.git",
+    "isPublic": true,
+    "commits": 2,
+    "works": 0,
+    "generatedAt": "2026-05-19T15:46:56.916Z"
+  },
+  {
+    "name": "kukurio",
+    "title": "kukurio-apps",
+    "remote": "https://github.com/kukurio218/kukurio218.github.io.git",
+    "isPublic": true,
+    "commits": 10,
+    "works": 0,
+    "generatedAt": "2026-05-19T15:46:57.262Z"
+  },
+  {
+    "name": "skuro",
+    "title": "skuro",
+    "remote": "https://github.com/skuro1115/skuro1115.github.io.git",
+    "isPublic": true,
+    "commits": 10,
+    "works": 8,
+    "generatedAt": "2026-05-19T15:46:57.621Z"
+  },
+  {
+    "name": "skuro-api",
+    "title": "skuro-api",
+    "remote": "",
+    "isPublic": false,
+    "commits": 1,
+    "works": 0,
+    "generatedAt": "2026-05-19T15:46:57.665Z"
+  },
+  {
+    "name": "video-workflow",
+    "title": "video-workflow",
+    "remote": "https://github.com/skuro1115/video-workflow-agent.git",
+    "isPublic": true,
+    "commits": 10,
+    "works": 0,
+    "generatedAt": "2026-05-19T15:46:58.000Z"
+  }
+]
